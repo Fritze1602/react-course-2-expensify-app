@@ -51,9 +51,6 @@ test('Should set amout if valid input', () => {
     expect(wrapper.state('amount')).toBe(value);
 })
 
-
-// Should not set amount if invalid input
-// input value 12.122
 test('Should not set amout if invalid input', () => {
     const value = '12.222';
     const wrapper = shallow(<ExpenseForm />);
@@ -62,6 +59,8 @@ test('Should not set amout if invalid input', () => {
     })
     expect(wrapper.state('amount')).toBe('');
 })
+
+// Spy Pattern
 
 test('Should call on Submit prop for valid form submission', () => {
     const onSubmitSpy = jest.fn();
