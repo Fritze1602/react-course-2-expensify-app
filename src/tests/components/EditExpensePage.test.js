@@ -7,21 +7,19 @@ import expenses from '../fixtures/expenses';
 // Should handle Edit Expense (spys)
 // Should handle Remove Expense (spys)
 
-
-let editExpense, removeExpense, history, wrapper;
+let editExpense, startRemoveExpense, history, wrapper;
 beforeEach(()=>{
     editExpense = jest.fn();
-    removeExpense = jest.fn();
+    startRemoveExpense = jest.fn();
     history = {push: jest.fn()};
     wrapper = shallow(
         <EditExpensePage 
         editExpense={editExpense} 
-        removeExpense = {removeExpense}
+        startRemoveExpense = {startRemoveExpense}
         history={history} 
         expense = {expenses[2]}/> 
         );
 })
-
 
 test('Should render Edit Page correctly', () => {
      expect(wrapper).toMatchSnapshot();
@@ -33,8 +31,8 @@ test('Should handle Edit Expense', () => {
     expect(editExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2]);
 })
 
-test('Should handle Edit Expense', () => {
+test('Should handle startRemvoeExpense', () => {
     wrapper.find('button').simulate('click');
     expect(history.push).toHaveBeenLastCalledWith('/');
-    expect(removeExpense).toHaveBeenLastCalledWith(expenses[2].id);
+    expect(startRemoveExpense).toHaveBeenLastCalledWith(expenses[2].id);
 })
