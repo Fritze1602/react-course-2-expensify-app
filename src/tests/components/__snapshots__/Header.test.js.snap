@@ -3,12 +3,11 @@
 exports[`Should header render correctly 1`] = `
 <header>
   <h1>
-    expensify
+    Expensify
   </h1>
   <NavLink
     activeClassName="is-active"
-    exact={true}
-    to="/"
+    to="/dashboard"
   >
     Dashboard
   </NavLink>
@@ -18,5 +17,10 @@ exports[`Should header render correctly 1`] = `
   >
     Create Expense
   </NavLink>
+  <button
+    onClick={[MockFunction]}
+  >
+    Logout
+  </button>
 </header>
 `;
